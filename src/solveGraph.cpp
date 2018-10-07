@@ -96,7 +96,7 @@ void input(char filename[]){
 				}
 			}
 		}
-		ofstream out("data",ios::out);
+		ofstream out("data/temp",ios::out);
 		out << nodeMapSmall.size() << "\n";
 		for (std::map<int,node>::iterator it = nodeMapSmall.begin(); it != nodeMapSmall.end(); ++it){
 			out << (it->first) << " ";
@@ -163,7 +163,7 @@ void output(tableCoordinate** table, char filename[]){
 		int countArrayRowwise[nodeMapSmall.size()] = {0};
 		//memset(countArrayRowwise,0,nodeMapSmall.size());
 		ofstream out(filename, ios::out);
-		ofstream out1("data",ios::app);
+		ofstream out1("data/temp",ios::app);
 		long counter = 1;
 		for (int i=0; i<nodeMapSmall.size(); i++){
 			for (int j=0; j<nodeMapLarge.size(); j++){
@@ -271,17 +271,13 @@ void output(tableCoordinate** table, char filename[]){
 		out1.close();
 	}	
 }
-int main(int argc, char * argv[])
-{
-	char* infile;
-	char* infile1;
-	infile = argv[1];
-	strcpy(infile1,infile);
-	strcat(infile,".graphs");
-	strcat(infile1,".satinput");
+
+int main(int argc, char * argv[]){
+	char* infile = argv[1];
+	char* outfile = argv[2];
 	input(infile);
 	tableCoordinate** table = solve();
-	output(table,infile1);
+	output(table,outfile);
 	delete table;
 	return 0;
 }

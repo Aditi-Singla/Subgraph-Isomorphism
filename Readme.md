@@ -2,7 +2,7 @@
 
 #### Goal
 
-The subgraph isomorphism problem has been formulated and solved as a SAT problem. Formulation as SAT is a valuable skill in AI that will come in handy whenever we are faced with a new problem in NP class. SAT solvers over the years have become quite advanced and are often able to scale to decently sized real-world problems.
+The subgraph isomorphism problem has been formulated and solved as a SAT problem using MINISAT. Formulation as SAT is a valuable skill in AI that will come in handy whenever we are faced with a new problem in NP class. SAT solvers over the years have become quite advanced and are often able to scale to decently sized real-world problems.
 
 #### Scenario
 
@@ -53,20 +53,25 @@ There are two directed graphs G and G’. The graphs do not have self-edges. Fin
 
 2. To run - 
 
-    * Takes as input *&lt;test&gt;.graphs* and produces *&lt;test&gt;.satinput*
+    ```bash
+    ./scripts/run.sh <test>
+    ```
 
-        ```bash
-        ./scripts/run1.sh <test>
-        ```
+    This takes *data/&lt;test&gt;.graphs* as input  and outputs *data/&lt;test&gt;.mapping*. It creates an intermediate *data/&lt;test&gt;.satinput* which is fed into the minisat solver which outputs *data/&lt;test&gt;.satoutput*, that if further processed to give the mapping.
 
-    * Takes as input *&lt;test&gt;.satinput* and produces *&lt;test&gt;.satoutput*
+#### Times
 
-        ```bash
-        ./minisat <test>.satinput <test>.satoutput
-        ```
 
-    * Takes as input *&lt;test&gt;.satinput* & *&lt;test&gt;.graphs* and produces *&lt;test&gt;.mapping*
-
-        ```bash
-        ./scripts/run2.sh <test>
-        ```
+|     Size     |      Time     |  MINISAT Time  |   Parse Time   |
+| ------------ | ------------- | -------------- | -------------- |
+|   221.4 KB   |   0.037263 s  |   0.008377 s   |      0.01 s    |
+| ------------ | ------------- | -------------- | -------------- |
+|   230.6 MB   |   20.8872 s   |   1.96996 s    |      1.73 s    |
+| ------------ | ------------- | -------------- | -------------- |
+|    445 MB    |   38.0229 s   |   5.32379 s    |      3.20 s    |
+| ------------ | ------------- | -------------- | -------------- |
+|   509.6 MB   |   69.6111 s   |   4.37252 s    |      4.03 s    |
+| ------------ | ------------- | -------------- | -------------- |
+|    1.3 GB    |   329.074 s   |   12.0110 s    |      11.61 s   |
+| ------------ | ------------- | -------------- | -------------- |
+|    1.1 GB    |   300.142 s   |   10.1426 s    |      9.80 s    |

@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-void input(char filename[], char filename1[]){
+void printMapping(char filename[], char filename1[]){
 	ifstream in1;
 	in1.open(filename);
 	if (!in1.is_open()){
@@ -22,7 +22,7 @@ void input(char filename[], char filename1[]){
 		}
 		else{
 			ifstream in;
-			in.open("data");
+			in.open("data/temp");
 			if (!in.is_open()){
 				cout << "File1 not found.\n";
 			}
@@ -76,14 +76,8 @@ void input(char filename[], char filename1[]){
 }
 int main(int argc, char * argv[])
 {
-	char* infile;
-	infile = argv[1];
-	char* infile1 = (char*)malloc(strlen(infile)+1);	
-	if (infile1){	
-		strcpy(infile1,infile);
-		strcat(infile,".satoutput");
-		strcat(infile1,".mapping");
-		input(infile,infile1);
-	}
+	char* infile = argv[1];
+	char* outfile = argv[2];
+	printMapping(infile,outfile);
 	return 0;
 }
