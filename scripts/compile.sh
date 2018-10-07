@@ -1,3 +1,4 @@
 #!/bin/bash
 
-make
+make clean
+make all

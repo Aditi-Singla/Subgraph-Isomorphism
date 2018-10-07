@@ -31,7 +31,7 @@ There are two directed graphs G and G’. The graphs do not have self-edges. Fin
     In the current code, it is guaranteed that G is a subgraph of G'. However, you can change the variable guaranteed_subgraph to false, to generate G,G' where G may not be a subgraph of G'. You can store in the instance in a file by redirecting the output to a file:
 
     ```bash
-    python generate.py n1 e1 n2 e2 &gt; &lt;filename&gt;
+    python generate.py n1 e1 n2 e2 > filename
     ```
 
 2. To check whether a mapping (in the given output format) is valid -
@@ -44,6 +44,7 @@ There are two directed graphs G and G’. The graphs do not have self-edges. Fin
 
 #### Running the code
 
+
 1. To compile -
 
     ```bash
@@ -52,7 +53,20 @@ There are two directed graphs G and G’. The graphs do not have self-edges. Fin
 
 2. To run - 
 
-    ```bash
-    ./scripts/run1.sh <input-data>
-    ./scripts/run2.sh <input-data>
-    ```
+    * Takes as input *&lt;test&gt;.graphs* and produces *&lt;test&gt;.satinput*
+
+        ```bash
+        ./scripts/run1.sh <test>
+        ```
+
+    * Takes as input *&lt;test&gt;.satinput* and produces *&lt;test&gt;.satoutput*
+
+        ```bash
+        ./minisat <test>.satinput <test>.satoutput
+        ```
+
+    * Takes as input *&lt;test&gt;.satinput* & *&lt;test&gt;.graphs* and produces *&lt;test&gt;.mapping*
+
+        ```bash
+        ./scripts/run2.sh <test>
+        ```
