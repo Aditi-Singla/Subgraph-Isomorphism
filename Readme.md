@@ -57,16 +57,16 @@ There are two directed graphs G and G’. The graphs do not have self-edges. Fin
     ./scripts/run.sh <test>
     ```
 
-    This takes `data/&lt;test&gt;.graphs` as input  and outputs `data/&lt;test&gt;.mapping`. It creates an intermediate `data/&lt;test&gt;.satinput` which is fed into the minisat solver which outputs `data/&lt;test&gt;.satoutput`, that if further processed to give the mapping.
+    This takes *data/&lt;test&gt;.graphs* as input  and outputs *data/&lt;test&gt;.mapping*. It creates an intermediate *data/&lt;test&gt;.satinput* which is fed into the minisat solver which outputs *data/&lt;test&gt;.satoutput*, that if further processed to give the mapping.
 
 #### Times
 
 
-   |     Size     |      Time     |   MINISAT Time   |   Parse Time   |
-   | ------------ | ------------- | ---------------- | -------------- |
-   |   221.4 KB   |   0.037263 s  |    0.008377 s    |      0.01 s    |
-   |   230.6 MB   |   20.8872 s   |    1.96996 s     |      1.73 s    |
-   |    445 MB    |   38.0229 s   |    5.32379 s     |      3.20 s    |
-   |   509.6 MB   |   69.6111 s   |    4.37252 s     |      4.03 s    |
-   |    1.3 GB    |   329.074 s   |    12.0110 s     |      11.61 s   |
-   |    1.1 GB    |   300.142 s   |    10.1426 s     |      9.80 s    |
+|     Size     |      Time     |   MINISAT Time   |   Parse Time   |
+| ------------ | ------------- | ---------------- | -------------- |
+|   221.4 KB   |   0.037263 s  |    0.008377 s    |      0.01 s    |
+|   230.6 MB   |   20.8872 s   |    1.96996 s     |      1.73 s    |
+|    445 MB    |   38.0229 s   |    5.32379 s     |      3.20 s    |
+|   509.6 MB   |   69.6111 s   |    4.37252 s     |      4.03 s    |
+|    1.3 GB    |   329.074 s   |    12.0110 s     |      11.61 s   |
+|    1.1 GB    |   300.142 s   |    10.1426 s     |      9.80 s    |
